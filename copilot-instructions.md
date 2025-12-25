@@ -1,0 +1,1 @@
+D:/Windows/Descargas/01_proyectos/shopify_liquid/HorizonGithub/AGENTS.md
