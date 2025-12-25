@@ -23,60 +23,43 @@
     ]
   },
   {
-    "name": "t:general.layout",
-    "settings": [
-      {
-        "type": "select",
-        "id": "max_page_width",
-        "label": "t:labels.page_width",
-        "options": [
-          {
-            "value": "90rem",
-            "label": "t:options.page_width.narrow"
-          },
-          {
-            "value": "110rem",
-            "label": "t:options.page_width.wide"
-          }
-        ],
-        "default": "90rem"
-      },
-      {
-        "type": "range",
-        "id": "min_page_margin",
-        "min": 10,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.page_margin",
-        "default": 20
-      }
-    ]
-  },
-  {
     "name": "t:general.colors",
     "settings": [
       {
+        "type": "header",
+        "content": "Theme Colors",
+        "info": "Select 3 main colors. The theme will automatically generate 4 lighter tints and 4 darker shades for each color (9 total variations)."
+      },
+      {
         "type": "color",
-        "id": "background_color",
+        "id": "color_primary",
+        "default": "#3B82F6",
+        "label": "Primary Color",
+        "info": "Main brand color"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "default": "#10B981",
+        "label": "Accent Color",
+        "info": "Secondary brand color (CTAs, highlights, etc.)"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "default": "#1F2937",
+        "label": "Text Color",
+        "info": "Main text color (e.g., paragraphs, headings)"
+      },
+      {
+        "type": "header",
+        "content": "Background Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
         "default": "#FFFFFF",
-        "label": "t:labels.background"
-      },
-      {
-        "type": "color",
-        "id": "foreground_color",
-        "default": "#333333",
-        "label": "t:labels.foreground"
-      },
-      {
-        "type": "range",
-        "id": "input_corner_radius",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.input_corner_radius",
-        "default": 4
+        "label": "Background Color"
       }
     ]
   }

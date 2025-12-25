@@ -1,18 +1,85 @@
 {% style %}
-  {% # Loads all font variantions with display: swap %}
+  {% # Loads all font variations with display: swap %}
   {{ settings.type_primary_font | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
   {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
 
   :root {
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
-    --page-width: {{ settings.max_page_width }};
-    --page-margin: {{ settings.min_page_margin }}px;
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+    /* ============================================
+     * TYPOGRAPHY - Tailwind Compatible
+     * ============================================ */
+    --font-sans: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
+    --font-primary-style: {{ settings.type_primary_font.style }};
+    --font-primary-weight: {{ settings.type_primary_font.weight }};
+    
+    /* ============================================
+     * COLORS - Tailwind Compatible
+     * Base colors from settings
+     * ============================================ */
+    --color-primary-base: {{ settings.color_primary }};
+    --color-accent-base: {{ settings.color_accent }};
+    --color-text-base: {{ settings.color_text }};
+    --color-background: {{ settings.color_background }};
+    
+    /* ============================================
+     * PRIMARY COLOR SCALE (9 variations)
+     * 4 tints + base + 4 shades
+     * ============================================ */
+    
+    /* Tints (mixing with white) */
+    --color-primary-100: color-mix(in srgb, {{ settings.color_primary }} 10%, white);
+    --color-primary-200: color-mix(in srgb, {{ settings.color_primary }} 30%, white);
+    --color-primary-300: color-mix(in srgb, {{ settings.color_primary }} 50%, white);
+    --color-primary-400: color-mix(in srgb, {{ settings.color_primary }} 70%, white);
+    
+    /* Base */
+    --color-primary-500: {{ settings.color_primary }};
+    
+    /* Shades (mixing with black) */
+    --color-primary-600: color-mix(in srgb, {{ settings.color_primary }} 85%, black);
+    --color-primary-700: color-mix(in srgb, {{ settings.color_primary }} 70%, black);
+    --color-primary-800: color-mix(in srgb, {{ settings.color_primary }} 55%, black);
+    --color-primary-900: color-mix(in srgb, {{ settings.color_primary }} 40%, black);
+    
+    /* ============================================
+     * ACCENT COLOR SCALE (9 variations)
+     * 4 tints + base + 4 shades
+     * ============================================ */
+    
+    /* Tints (mixing with white) */
+    --color-accent-100: color-mix(in srgb, {{ settings.color_accent }} 10%, white);
+    --color-accent-200: color-mix(in srgb, {{ settings.color_accent }} 30%, white);
+    --color-accent-300: color-mix(in srgb, {{ settings.color_accent }} 50%, white);
+    --color-accent-400: color-mix(in srgb, {{ settings.color_accent }} 70%, white);
+    
+    /* Base */
+    --color-accent-500: {{ settings.color_accent }};
+    
+    /* Shades (mixing with black) */
+    --color-accent-600: color-mix(in srgb, {{ settings.color_accent }} 85%, black);
+    --color-accent-700: color-mix(in srgb, {{ settings.color_accent }} 70%, black);
+    --color-accent-800: color-mix(in srgb, {{ settings.color_accent }} 55%, black);
+    --color-accent-900: color-mix(in srgb, {{ settings.color_accent }} 40%, black);
+    
+    /* ============================================
+     * TEXT COLOR SCALE (9 variations)
+     * 4 tints + base + 4 shades
+     * ============================================ */
+    
+    /* Tints (mixing with white) */
+    --color-text-100: color-mix(in srgb, {{ settings.color_text }} 10%, white);
+    --color-text-200: color-mix(in srgb, {{ settings.color_text }} 30%, white);
+    --color-text-300: color-mix(in srgb, {{ settings.color_text }} 50%, white);
+    --color-text-400: color-mix(in srgb, {{ settings.color_text }} 70%, white);
+    
+    /* Base */
+    --color-text-500: {{ settings.color_text }};
+    
+    /* Shades (mixing with black) */
+    --color-text-600: color-mix(in srgb, {{ settings.color_text }} 85%, black);
+    --color-text-700: color-mix(in srgb, {{ settings.color_text }} 70%, black);
+    --color-text-800: color-mix(in srgb, {{ settings.color_text }} 55%, black);
+    --color-text-900: color-mix(in srgb, {{ settings.color_text }} 40%, black);
   }
 {% endstyle %}
